@@ -1,0 +1,32 @@
+Procurando pacotes de mysqlserver(Oracle mysql) em Linux
+apt search mysql-server
+
+Installando mysqlserver em Linux
+apt install mysql-server-8.0 -y
+
+Acessando banco de dados
+mysql -u root -p
+Senha: 123
+
+Mostrar banco de dados
+show databases;
+
+Criando banco de dados
+create database meubanco;
+
+Usando banco:
+use meubanco;
+
+Criando tabelas:
+create table pessoas(pessoaID int, nome varchar(50), sobrenome varchar(50), endereco varchar(100));
+
+Mostrando tabelas:
+show tables;
+
+Saindo do banco:
+exit
+
+
+
+
+

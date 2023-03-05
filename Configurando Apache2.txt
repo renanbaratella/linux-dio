@@ -1,0 +1,25 @@
+Atualizar o servidor linux
+apt update -y
+apt upgrade -y
+
+Reniciar a maquina
+reboot
+
+Installar Apache
+apt install apache2 -y
+
+Verificar se esta rodando apache
+systemctl status apache2
+
+Endereco da pagina
+cd /var/www/html
+
+Installar o unzip
+apt install unzip
+
+Fazer download de um repositorio em ZIP do github
+wget https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
+
+Copiar arquivos
+cp -R * /var/www/html
+
