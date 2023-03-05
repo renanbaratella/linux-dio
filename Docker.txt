@@ -1,0 +1,76 @@
+Testar o quanto um computador aguenta:
+loader.io
+
+imagem é imutável
+container é uma instancia de uma imagem na orientação a objeto
+
+
+
+docker ps - mostra todos container RODANDO
+docker ps -a - mostra todos container que NÃO está rodando
+
+
+docker run nginx - vai puxar uma imagem do dockerhub do nginx
+docker run -p 8080:80 nginx host:container vai rodar na porta 8080 do host e 8080 do container
+
+remover um container = docker rm idcontainer
+
+docker image ls - lista todas as imagens baixadas no pc
+
+
+docker exec -it namecontainer bash
+
+linux:
+apt-get update && apt-get install -y
+
+
+docker run <nome_da_imagem>
+docker run ubuntu
+docker run --name MyContainer -it ubuntu bash
+
+
+
+docker run nginx:latest     (latest pega por padrao) pega no github
+run(da o pull e roda a imagem em um container)
+
+docker ps - mostra os container rodando
+
+docker ps -a (mostra todos os container parados)
+
+docker run -p 8080:80 nginx  (aponta 8080 host local para 80 no container)
+docker ps (vai mostrar que a porta do host está apontada 80 do container)
+docker exec (nome_do_container) ls (vai executar o ls dentro do container)
+docker exec (nome_container) bash (vai entrar no terminal do container e sair)
+docker exec -it (nome_container) bash (vai entrar no terminal do container)
+
+uname -a mostra qual SO
+
+docker rm (id) -f     (deleta o container mesmo rodando)
+
+
+
+docker run -p 8080:80 -v $(pwd)/www:/usr/share/nginx/html nginx
+comando acima vai criar um volume onde vai mapear uma pasta da sua maquina para a pasta do container, isso acontece para vc nao perder os dados do container toda vez que derruba pq uma imagem é imutavel, vc n consegue armazenar dados dentro de um container, solução disso é volume.
+
+
+
+arq Dockerfile
+
+from nginx:latest
+
+COPY www/index.html /usr/share/nginx/html/index.html
+
+docker build -t (nome ex: wesleywilliams/imersao11-nginx:latest) .
+comando acima é sem os parenteses e é só um exemplo para colocar o nome da imagem.
+o wesleywilliams é o nome do seu usuario no dockerhub para jogar a sua imagem no repositorio do docker(dockerhub) igual o gitub.
+o . no final do comando é para mostrar aonde está o arq Dockerfile já que ele vai estar geralmente nas pasta atual só dando o . indica que é o diretorio atual.
+
+docker login (para logar sua conta no github digitando usuario e senha)
+docker push wesleywilliams/imersao11-nginx:latest (vai dar o "push" la no dockerhub tornando-o publco para qualquer pessoa que tenha docker na maquina poder utilizar a sua imagem que vc criou)
+
+agora se digitarmos docker run -p 8080:80 wesleywilliams/imersao11-nginx:latest (ira puxar la do dockerhub pq vai ta salvo pq vc deu push antes)
+
+
+
+
+
